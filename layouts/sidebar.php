@@ -9,7 +9,7 @@
                                 class="badge badge-primary">1</span> <span
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="index.php">Dashboard 1</a></li>
+                            <li><a href="dashboard.php">Dashboard 1</a></li>
                         </ul>
                     </li>
 
@@ -21,7 +21,9 @@
                             <li><a href="tambah-buku.php">Tambah Buku</a></li>
                             
                         </ul>
-                    </li>  
+                    </li>
+                    <li class="label">Settings</li>
+                    <li><a href="logout.php"><i class="ti-close"></i> Logout</a></li>
                 </ul>
             </div>
         </div>

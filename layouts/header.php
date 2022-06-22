@@ -1,3 +1,10 @@
+<?php 
+	session_start();
+	if($_SESSION['status']!="login"){
+		header("location:index.php?pesan=belum_login");
+	}
+?>
+
 <div class="header">
         <div class="container-fluid">
             <div class="row">
@@ -12,21 +19,10 @@
                     <div class="float-right">
                         <div class="dropdown dib">
                             <div class="header-icon" data-toggle="dropdown">
-                                <span class="user-avatar">Denna Mandela
-                                    <i class="ti-angle-down f-s-10"></i>
+                                <span class="user-avatar">
+                                    Selamat Datang, <?php echo $_SESSION['username']; ?>
                                 </span>
-                                <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
-                                    
-                                        <ul>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="ti-power-off"></i>
-                                                    <span>Logout</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
