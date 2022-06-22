@@ -101,7 +101,7 @@
                                             </div>
                                             <div class="text-right">
                                                 <button type="submit" class="btn btn-primary">Simpan</button>
-                                                <a href="#" class="btn btn-danger">Batal</a>
+                                                <a href="data-buku.php" class="btn btn-danger">Batal</a>
                                             </div>
                                         </form>
                                     </div>
