@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Data Buku</title>
+    <title>Rak Buku</title>
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
     <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
@@ -60,7 +60,7 @@
                             <div class="page-title">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Data Buku</li>
+                                    <li class="breadcrumb-item active">Rak Buku</li>
                                     
                                 </ol>
                             </div>
@@ -75,7 +75,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-title">
-                                    <a href="tambah-buku.php" class="btn btn-primary m-b-10 m-1-5">(+)Tambah Buku</a>
+                                    <a href="tambah-rak.php" class="btn btn-primary m-b-10 m-1-5">(+)Tambah Rak Buku</a>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -83,11 +83,9 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Kode Buku</th>
-                                                    <th>Judul</th>
-                                                    <th>Penulis</th>
-                                                    <th>Penerbit</th>
-                                                    <th>Tahun Terbit</th>
+                                                    <th>Buku</th>
+                                                    <th>Rak</th>
+                                                    <th>Lokasi</th>
                                                     <th>AKSI</th>
                                                 </tr>
                                             </thead>
@@ -95,19 +93,17 @@
                                                 <?php 
                                                     include 'config/koneksi.php';
                                                     $no = 1;
-                                                    $data = mysqli_query($koneksi, "select * from books");
+                                                    $data = mysqli_query($koneksi, "select * from rack inner join books on rack.buku_id = books.id");
                                                     while($d = mysqli_fetch_array($data)){
                                                         ?>
                                                         <tr>
                                                             <th scope="row"><?php echo $no++; ?></th>
-                                                            <td><?php echo $d['kode_buku']; ?></td>
                                                             <td><?php echo $d['judul_buku']; ?></td>
-                                                            <td><?php echo $d['penulis']; ?></td>
-                                                            <td><?php echo $d['penerbit']; ?></td>
-                                                            <td><?php echo $d['tahun_terbit']; ?></td>
+                                                            <td><?php echo $d['nama_rak']; ?></td>
+                                                            <td><?php echo $d['lokasi_rak']; ?></td>
                                                             <td>
-                                                                <a class="btn btn-sm btn-warning" href="edit.php?id=<?php echo $d['id']; ?>">Edit</a> |
-                                                                <a class="btn btn-sm btn-danger" href="hapus.php?id=<?php echo $d['id']; ?>">Hapus</a>
+                                                                <a class="btn btn-sm btn-warning" href="edit-rak.php?id=<?php echo $d['id']; ?>">Edit</a> |
+                                                                <a class="btn btn-sm btn-danger" href="hapus-rak.php?id=<?php echo $d['id']; ?>">Hapus</a>
                                                             </td> 
                                                         </tr>
                                                         <?php

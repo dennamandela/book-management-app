@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Data Buku</title>
+    <title>Tambah Rak Buku</title>
     <!-- ================= Favicon ================== -->
     <!-- Standard -->
     <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
@@ -60,8 +60,7 @@
                             <div class="page-title">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Data Buku</li>
-                                    
+                                    <li class="breadcrumb-item active">Tambah Rak Buku</li>
                                 </ol>
                             </div>
                         </div>
@@ -69,53 +68,44 @@
                     <!-- /# column -->
                 </div>
                 <!-- /# row -->
-                
                 <section id="main-content">
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-title">
-                                    <a href="tambah-buku.php" class="btn btn-primary m-b-10 m-1-5">(+)Tambah Buku</a>
+                                    <h4>Tambah Rak Buku</h4>
+                                    
                                 </div>
                                 <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th>Kode Buku</th>
-                                                    <th>Judul</th>
-                                                    <th>Penulis</th>
-                                                    <th>Penerbit</th>
-                                                    <th>Tahun Terbit</th>
-                                                    <th>AKSI</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php 
-                                                    include 'config/koneksi.php';
-                                                    $no = 1;
-                                                    $data = mysqli_query($koneksi, "select * from books");
-                                                    while($d = mysqli_fetch_array($data)){
-                                                        ?>
-                                                        <tr>
-                                                            <th scope="row"><?php echo $no++; ?></th>
-                                                            <td><?php echo $d['kode_buku']; ?></td>
-                                                            <td><?php echo $d['judul_buku']; ?></td>
-                                                            <td><?php echo $d['penulis']; ?></td>
-                                                            <td><?php echo $d['penerbit']; ?></td>
-                                                            <td><?php echo $d['tahun_terbit']; ?></td>
-                                                            <td>
-                                                                <a class="btn btn-sm btn-warning" href="edit.php?id=<?php echo $d['id']; ?>">Edit</a> |
-                                                                <a class="btn btn-sm btn-danger" href="hapus.php?id=<?php echo $d['id']; ?>">Hapus</a>
-                                                            </td> 
-                                                        </tr>
-                                                        <?php
-                                                    }
+                                    <div class="basic-form">
+                                        <form action="proses-rak.php" method="POST">
+                                            <div class="form-group">
+                                                <label>Buku</label>
+                                                <select class="form-control" name="buku_id">
+                                                    <option value="-">Pilih Buku</option>
+                                                    <?php
+                                                        include 'config/koneksi.php';
+
+                                                        $data = mysqli_query($koneksi, "select * from books");
+                                                        while ($d = mysqli_fetch_array($data)){
+                                                                echo "<option value = \"". $d[buku_id]."\">" .$d[judul_buku]."</option>";
+                                                            }                    
                                                     ?>
-                                                
-                                            </tbody>
-                                        </table>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Rak</label>
+                                                <input type="text" class="form-control" name="nama_rak" placeholder="Rak">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Lokasi Rak</label>
+                                                <input type="text" class="form-control" name="lokasi_rak" placeholder="Lokasi Rak">
+                                            </div>
+                                            <div class="text-right">
+                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                                <a href="rak-buku.php" class="btn btn-danger">Batal</a>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

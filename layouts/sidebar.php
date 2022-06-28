@@ -18,7 +18,7 @@
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
                             <li><a href="data-buku.php">Data Buku</a></li>
-                            <li><a href="tambah-buku.php">Tambah Buku</a></li>
+                            <li><a href="rak-buku.php">Rak Buku </a></li>
                             
                         </ul>
                     </li>
